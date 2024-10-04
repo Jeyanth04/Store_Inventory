@@ -1,34 +1,46 @@
-document.getElementById('addButton').addEventListener('click', addTask);
-document.getElementById('taskInput').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        addTask();
+console.log("\n\n10 % Discount on Order above Rs.500\n");
+console.log("+-------+------MENU-------+--------+");
+console.log("|S.no   |Name             |Prize   |");
+console.log("+-------+-----------------+--------+");
+console.log("|1.     |Strawberry       |Rs.110  |");
+console.log("+-------+-----------------+--------+");
+console.log("|2.     |Vanilla          |Rs.120  |");
+console.log("+-------+-----------------+--------+");
+console.log("|3.     |Chocolate        |Rs.120  |");
+console.log("+-------+-----------------+--------+");
+console.log("|4.     |Mango            |Rs.150  |");
+console.log("+-------+-----------------+--------+\n\n");
+
+n=prompt("Enter the S.no (5 to stop the Order) :")
+n=Number(n)
+let s=0
+let  f=0
+while (f==0){
+    switch(n){
+        case 1:
+            s=s+100
+            break;
+        case 2:
+            s=s+200
+            break;
+        case 3:
+            s=s+300
+            break;
+        case 4:
+            s=s+450
+            break;
+        case 5:
+            f=1
+            break;
+        default :
+        console.log("Enter the Correct choice!!!")
     }
-});
-
-function addTask() {
-    const taskInput = document.getElementById('taskInput');
-    const taskText = taskInput.value.trim();
-
-    if (taskText === '') {
-        alert('Please enter a task');
-        return;
+    if (f==0){
+        console.log("Current Total  : Rs.",s)
+        n=prompt("Enter the S.no (5 to stop the Order) :")
+        n=Number(n)
     }
-
-    const taskList = document.getElementById('taskList');
-    const li = document.createElement('li');
-
-    li.textContent = taskText;
-    li.addEventListener('click', function() {
-        li.classList.toggle('completed');
-    });
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.addEventListener('click', function() {
-        taskList.removeChild(li);
-    });
-
-    li.appendChild(deleteButton);
-    taskList.appendChild(li);
-    taskInput.value = '';
 }
+
+
+    console.log("\n\n\mFinal  prize : Rs.",s);
